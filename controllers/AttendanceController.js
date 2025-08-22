@@ -28,6 +28,7 @@ module.exports = {
         { new: true }
       );
 
+
       UtilController.sendSuccess(req, res, next, {
         message: "Attendance updated successfully",
         responseCode: returnCode.validSession,
