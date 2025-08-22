@@ -37,7 +37,6 @@ const userSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ["New", "Scheduled", "Ongoing", "Selected", "Rejected"],
-    default: "",
   },
   experience: {
     type: String,
