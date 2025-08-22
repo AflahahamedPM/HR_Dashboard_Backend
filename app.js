@@ -14,7 +14,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://hr-dashboard-frontend-4ewj.vercel.app"
+      "https://hr-dashboard-frontend-4ewj.vercel.app",
+      "https://hr-dashboard-frontend-seven.vercel.app"
     ],
     credentials: true,
   })
