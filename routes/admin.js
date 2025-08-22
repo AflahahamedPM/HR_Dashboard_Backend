@@ -8,12 +8,13 @@ const upload = require("../middleware/multerConfig");
 const UserController = require("../controllers/UserController");
 const EmployeeController = require("../controllers/EmployeeController");
 const AttendanceController = require("../controllers/AttendanceController");
+const LeaveController = require("../controllers/LeaveController");
 
 // delete user
 router.route("/user/delete").post(UserController.deleteUser);
 
 // upload
-router.post("/resume", upload.single("resume"), UploadController.uploadResume);
+router.post("/upload", upload.any(), UploadController.uploadResume);
 
 // auth related api
 router.route("/account/login").post(AuthController.accountLogin);
@@ -51,4 +52,19 @@ router
     AttendanceController.updateAttendanceStatus
   );
 
+// leave api
+
+router
+  .route("/employee/dropdown")
+  .get(adminAutherization.adminAuth, LeaveController.getEmployees);
+
+router
+  .route("/leave/apply")
+  .post(adminAutherization.adminAuth, LeaveController.applyLeave);
+
+router
+  .route("/leave/list")
+  .post(adminAutherization.adminAuth, LeaveController.listLeaves);
+
+router.route("/leave/update").post(LeaveController.updateLeaveStatus);
 module.exports = router;

@@ -5,7 +5,8 @@ const { returnCode } = require("../config/responseCode");
 
 module.exports = {
   uploadResume: (req, res, next) => {
-    const file = req.file;
+
+    const file = req.files[0];
     if (!file)
       return UtilController.sendSuccess(req, res, next, {
         responseCode: returnCode.invalidSession,
